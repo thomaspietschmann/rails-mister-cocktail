@@ -4,9 +4,15 @@
     <% @cocktails.each do |cocktail| %>
       <div class="col-md-4 my-3">
         <%= link_to cocktail_path(cocktail) do %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo.key, crop: :fill %>')" >
-            <%= cocktail.name %>
-          </div>
+          <% if cocktail.photo.attached? %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo.key, crop: :fill %>')" >
+              <%= cocktail.name %>
+            </div>
+          <% else %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2))" >
+              <%= cocktail.name %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     <% end %>
