@@ -1,0 +1,6 @@
+<h1>Add ingredients on this page</h1>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description, placeholder: "Enter the dose"  %>
+  <%= f.association :ingredient, prompt: "Choose an Ingredient"%>
+  <%= f.button :submit %>
+<% end %>

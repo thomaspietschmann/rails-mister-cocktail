@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="logo">
+    <%= image_tag "1.png", alt: "Tommys Cocktails", width: 250 %>
+  </div>
+  <h1>See all our cocktails</h1>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-md-4 my-2">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.imgurl %>)">
+          <%= cocktail.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Add cocktail", new_cocktail_path %>
+</div>
